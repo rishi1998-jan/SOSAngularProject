@@ -1,0 +1,143 @@
+
+
+
+
+<body style="background-color: whitesmoke;background-image:url(https://wallpaperaccess.com/full/3847549.jpg); background-repeat:no-repeat;width: 100%; background-size: cover">
+
+  <div>
+      <br>
+       
+  
+      <div class="modal-dialog" >
+      
+          <div class="modal-content" style="background-color: rgba(241, 229, 229, 0.972); width: 720px; margin-left: -150px;" >
+              <div class="modal-header text-center">
+                  <h4 class="modal-title "style="padding-left: 255px; font-family: bold; font-size: xx-large;">User Registration</h4>
+                  <div *ngIf="success == true; then SUCC else FAIL"></div>
+                  <ng-template #SUCC ><p style="color:green" >{{message}}</p></ng-template>
+                  <ng-template #FAIL><p style="color:red" >{{message}}</p></ng-template>
+  
+              </div>
+      
+                  <div class="modal-body">
+                      <div class="form-group row">
+                          <label class="col-lg-2 form-control-label">Name<span style="color: red;">*</span> </label>
+                          <div class="col-lg-4">
+                              <input [(ngModel)]="form.firstName" type="text" name="firstName" placeholder="Enter your first Name">
+                              <div class="col-lg-4"></div>
+                              <span style="color: red;"> {{inputError.firstName}} </span>
+                          </div>
+                          <label class="col-lg-2 form-control-label">LastName<span style="color: red;">*</span> </label>
+                          <div class="col-lg-4">
+                              <input [(ngModel)]="form.lastName" type="text" name="lastName" placeholder="Enter your last Name">
+                              <div class="col-lg-4"></div>
+                              <span style="color: red;"> {{inputError.lastName}} </span>
+      
+                          </div>
+                      </div>
+                      
+      
+                      <div class="form-group row">
+                          <label class="col-lg-2 form-control-label">Email Id<span style="color: red;">*</span></label>
+                          <div class="col-lg-4">
+                              <input  [(ngModel)]="form.login_id"  type="email" name="login_id" placeholder="Enter your login_id">
+                              <div class="col-lg-4"></div>
+                              <span style="color: red;"> {{inputError.login_id}} </span>
+      
+                          </div>
+                          <label class="col-lg-2 form-control-label">Password<span style="color: red;">*</span></label>
+                          <div class="col-lg-4">
+                              <input [(ngModel)]="form.password" type="password" name="password" placeholder="Enter your password">
+                              <div class="col-lg-4"></div>
+                              <span style="color: red;"> {{inputError.password}} </span>
+      
+                          </div>
+                      </div>
+      
+                      <div class="form-group row">
+                          
+                          <label class="col-lg-2 form-control-label">ConPassword<span style="color: red;">*</span> </label>
+                          <div class="col-lg-4">
+                              <input [(ngModel)]="form.confirmpassword" type="password" name="confirmpassword" placeholder="Enter your confirm password">
+                              <div class="col-lg-4"></div>
+                              <span style="color: red;"> {{inputError.confirmpassword}} </span>
+      
+                          </div>
+                          <label class="col-lg-2 form-control-label">DOB<span style="color: red;">*</span> </label>
+                          <div class="col-lg-4">
+                              <input [(ngModel)]="form.dob" type="date" name="dob" placeholder="Enter your dob"
+                              value="2018-07-22"
+                              min="1990-01-01" max="2021-01-31" style="width: 180px;">
+                              <div class="col-lg-4"></div>
+                              <span style="color: red;"> {{inputError.dob}} </span>
+      
+                          </div>
+                      </div>
+      
+                      <div class="form-group row">
+                          
+                      </div>
+                      <div class="form-group row">
+                       
+                        <label class="col-lg-2 form-control-label">Address<span style="color: red;">*</span> </label>
+                        <div class="col-lg-4">
+                            <input [(ngModel)]="form.address" type="text" name="address" placeholder="Enter your address">
+                            <div class="col-lg-4"></div>
+                            <span style="color: red;"> {{inputError.address}} </span>
+    
+                        </div>
+                        <label class="col-lg-2 form-control-label">Gender <span style="color: red;">*</span> </label>
+                        <div class="col-lg-4">
+                            <!-- <input [(ngModel)]="form.gender" type="text" name="gender" placeholder="Enter your gender"> -->
+                            <select [(ngModel)]="form.gender" name="gender" style="width: 180px;">
+                                  <!-- <option>--Select--</option> -->
+                                  <option value="Male">Male</option>
+                                  <option value="Female">Female</option>
+                          </select>
+                          <div class="col-lg-4"></div>
+                            <span style="color: red;"> {{inputError.gender}} </span>
+    
+                        </div>
+                      </div> 
+                      
+                      <div class="form-group row">
+                        
+                        <label class="col-lg-2 form-control-label">MobileNo<span style="color: red;">*</span> </label>
+                        <div class="col-lg-4">
+                            <input [(ngModel)]="form.mobilenumber" type="text" name="mobilenumber" placeholder="Enter your mobilenumber">
+                            <div class="col-lg-4"></div>
+                            <span style="color: red;"> {{inputError.mobilenumber}} </span>
+    
+                        </div>
+                                      
+                      
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-md-3"></div>
+                                <div class="col-md-3">
+      
+                                    <button (click)="save()" type="submit" class="btn btn-success form-control" value="submit">Save
+                                      
+      
+                                    </button>
+                                  </div>
+                                  <div class="col-md-3">
+                                    <button type="reset" (click)="reset()" class="btn btn-primary form-control" value="reset">Reset
+      
+                                       
+                                    </button>
+                                  </div>
+                            </div>
+                         </div>
+                          <!-- <div class="col-lg-12">
+                              <!-- <a href="/ORS/CollegeList"> List -->
+                                  <!-- <span class="fas fa-paper-plane"></span>
+                              </a>
+                          </div> -->
+                      <!-- </div> -->
+                  </div>
+          <!-- </div> -->
+      </div>
+      
+      </div>
+      

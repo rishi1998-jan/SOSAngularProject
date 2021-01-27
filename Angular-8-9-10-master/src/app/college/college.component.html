@@ -1,0 +1,133 @@
+<body style="background-color: whitesmoke;background-image:url(https://wallpaperaccess.com/full/3847549.jpg); background-repeat:no-repeat;width: 100%; background-size: cover">
+
+    <div>
+        <br>
+        <br>
+
+        <div class="modal-dialog" >
+
+          <div class="modal-content" style="background-color: rgba(241, 229, 229, 0.972); ">
+            <div class="modal-header text-center">
+                    <!-- <h4 class="modal-title "style="padding-left: 125px;">College Information</h4> -->
+                    <h4  class="modal-title " style="font-family: bold; font-size: xx-large;margin-left: 110px;">College Information</h4>
+
+                    <div *ngIf="success == true; then SUCC else FAIL"></div>
+                    <ng-template #SUCC ><p style="color:green" >{{message}}</p></ng-template>
+                    <ng-template #FAIL><p style="color:red" >{{message}}</p></ng-template>
+
+                </div>
+
+                    <div class="modal-body">
+                        <div class="form-group row" >
+                            <div class="col-lg-1"></div>
+                            <label class="col-lg-3 form-control-label">Name <span style="color: red;"> * </span> </label>
+                            <div class="col-lg-8">
+                                <input [(ngModel)]="form.collegeName" type="text" name="collegeName" placeholder="Enter your college name" style=" width: 250px;">
+
+                            <div class="col-lg-4"></div>
+                                <span style="color: red;"> {{inputError.collegeName}} </span>
+                                <!-- <span style="color: red;" class="help-block" *ngIf="colllegeControl.invalid"> college name is required </span> -->
+
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                          <div class="col-lg-1"></div>
+                            <label class="col-lg-3 form-control-label">Address <span style="color: red;"> * </span> </label>
+                            <div class="col-lg-8">
+                                <input [(ngModel)]="form.collegeAddress" type="text" name="collegeAddress" placeholder="Enter your college address" style=" width: 250px;">
+
+                            <div class="col-lg-4"></div>
+                                <span style="color: red;"> {{inputError.collegeAddress}} </span>
+
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                          <div class="col-lg-1"></div>
+                            <label class="col-lg-3 form-control-label">State <span style="color: red;"> * </span></label>
+                            <div class="col-lg-8">
+                                <input  [(ngModel)]="form.collegeState"  type="text" name="collegeState" placeholder="Enter your state" style=" width: 250px;">
+
+                            <div class="col-lg-4"></div>
+                                <span style="color: red;"> {{inputError.collegeState}} </span>
+
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                          <div class="col-lg-1"></div>
+                            <label class="col-lg-3 form-control-label">City<span style="color: red;"> * </span></label>
+                            <div class="col-lg-8">
+                                <input [(ngModel)]="form.collegeCity" type="text" name="collegeCity" placeholder="Enter your city" style=" width: 250px;">
+
+                            <div class="col-lg-4"></div>
+                                <span style="color: red;"> {{inputError.collegeCity}} </span>
+
+                            </div>
+                        </div>
+
+
+                        <div class="form-group row">
+                          <div class="col-lg-1"></div>
+                            <label class="col-lg-3 form-control-label">PhoneNo <span style="color: red;"> * </span> </label>
+                            <div class="col-lg-8">
+                                <input [(ngModel)]="form.collegePhoneNumber" type="text" name="collegePhoneNumber" placeholder="Enter your number" style=" width: 250px;">
+                                <!-- <span style="color: red;"> {{inputError.collegePhoneNumber}} </span> -->
+
+
+                            <div class="col-lg-4"></div>
+                            <span style="color: red; "> {{inputError.collegePhoneNumber}} </span>
+                            </div>
+                        </div>
+
+                      <div class="container">
+                        <div class="row">
+                            <div class="col-md-4"></div>
+                            <div class="col-md-3">
+
+                                <button (click)="save()" type="submit" class="btn btn-success" value="submit" >Save
+                                    <!-- <span class="fas fa-paper-plane"></span> -->
+                                    <!-- <span class="glyphicon glyphicon-chevron-left"></span> -->
+                                </button>
+
+                                <button type="reset" (click)="reset()" class="btn btn-primary" value="reset" style="margin-left:100px; margin-top: -63px">Reset
+                                    <!-- <span class="fas fa-paper-plane"></span> -->
+                                    <!-- <span class="glyphicon glyphicon-chevron-right"></span> -->
+                                </button>
+                            </div>
+                        </div>
+                     </div>
+                            <!-- <div class="col-lg-12">
+                                <!-- <a href="/ORS/CollegeList"> List -->
+                                    <!-- <span class="fas fa-paper-plane"></span>
+                                </a>
+                            </div> -->
+                        <!-- </div> -->
+                    </div>
+            <!-- </div> -->
+        </div>
+        <!--
+        <form method="POST">
+            <input type="hidden" name="id" value="{{id}}">
+            <br>
+            Name <input name="collegeName" value="{{collegeName}}">
+            <span style="color: red;"> {{inputError.collegeName}} </span>
+            <br>
+            Address <input name="collegeAddress" value="{{collegeAddress}}">
+            <span style="color: red;"> {{inputError.collegeAddress}} </span>
+            <br>
+            State <input name="collegeState" value="{{collegeState}}">
+            <span style="color: red;"> {{inputError.collegeState}} </span>
+            <br>
+            City <input name="collegeCity" value="{{collegeCity}}">
+            <span style="color: red;"> {{inputError.collegeCity}} </span>
+            <br>
+            Phone_Number <input name="collegePhoneNumber" value="{{collegePhoneNumber}}">
+            <span style="color: red;"> {{inputError.collegePhoneNumber}} </span>
+            <br>
+
+            <input type="submit" value="Save">
+            <a href="/ORS/CollegeList"> List </a>
+        </form>
+        -->
+        </div>

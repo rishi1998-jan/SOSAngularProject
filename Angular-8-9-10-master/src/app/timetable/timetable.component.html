@@ -1,0 +1,157 @@
+
+
+
+
+<body style="background-color: whitesmoke;background-image:url(https://wallpaperaccess.com/full/3847549.jpg); background-repeat:no-repeat;width: 100%; background-size: cover">
+
+    <div>
+        <br>
+        
+    
+        <div class="modal-dialog" >
+        
+            <div class="modal-content" style="background-color: rgba(241, 229, 229, 0.972); width: 650px;     margin-left: -62px;" >
+                <div class="modal-header text-center">
+                    <h4 class="modal-title "style="padding-left: 185px; font-family: bold; font-size: xx-large;">TimeTable Information</h4>
+                    <div *ngIf="success == true; then SUCC else FAIL"></div>
+                    <ng-template #SUCC ><p style="color:green" >{{message}}</p></ng-template>
+                    <ng-template #FAIL><p style="color:red" >{{message}}</p></ng-template>
+    
+                </div>
+        
+                    <div class="modal-body">
+                        <div class="form-group row">
+                            <label class="col-lg-2 form-control-label">ExamTime<span style="color: red;">*</span> </label>
+                            <div class="col-lg-4">
+                                <!-- <input [(ngModel)]="form.examTime" type="text" name="examTime" placeholder="Enter your examTime"> -->
+                                <select [(ngModel)]="form.examTime" name="examTime" style="width: 180px;">
+                                        <!-- <option>--Select--</option> -->
+                                        <option >9:00AM to 1:00PM</option>
+                                        <option >2:00PM to 4:00PM</option>
+                                        <option >4:00PM to 7:00PM</option>
+                                </select>
+                                <span style="color: red;"> {{inputError.examTime}} </span>
+                            </div>
+                            <label class="col-lg-2 form-control-label">ExamDate<span style="color: red;">*</span> </label>
+                            <div class="col-lg-4">
+                                <input [(ngModel)]="form.examDate" type="date" name="examDate" placeholder="Enter your examDate"
+                                value="2018-07-22"
+                            min="2021-01-01" max="2030-01-31" style="width: 180px;">
+                                <span style="color: red;"> {{inputError.examDate}} </span>
+        
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            
+                        </div>
+        
+                        <div class="form-group row">
+                           
+                            <label class="col-lg-2 form-control-label">SubName<span style="color: red;">*</span></label>
+                            <div class="col-lg-4">
+                                <!-- <input [(ngModel)]="form.subjectName" type="text" name="subjectName" placeholder="Enter your subjectName"> -->
+                                <select [(ngModel)]="form.subject_ID" style="width: 180px;">
+                                    <option *ngFor="let p of subData" value="{{p.id}}">
+                                        {{p.subjectName}}
+                                    </option>
+                                </select>
+                                <span style="color: red;"> {{inputError.subjectName}} </span>
+        
+                            </div>
+                            <label class="col-lg-2 form-control-label">CourseName<span style="color: red;">*</span> </label>
+                            <div class="col-lg-4">
+                                <!-- <input [(ngModel)]="form.courseName" type="text" name="courseName" placeholder="Enter your courseName"> -->
+                                <select [(ngModel)]="form.course_ID" style="width: 180px;">
+                                  <option *ngFor="let p of courseData" value="{{p.id}}">
+                                      {{p.courseName}}
+                                  </option>
+                              </select>
+                                <span style="color: red;"> {{inputError.courseName}} </span>
+        
+                            </div>
+                        </div>
+        
+                       
+        
+                        <div class="form-group row">
+                           
+                           
+                         
+                            <label class="col-lg-2 form-control-label">Semester<span style="color: red;">*</span> </label>
+                            <div class="col-lg-4">
+                                <!-- <input [(ngModel)]="form.semester" type="text" name="semester" placeholder="Enter your semester"> -->
+                                <select [(ngModel)]="form.semester" name="semester" style="width: 180px;">
+                                      <!-- <option>--Select--</option> -->
+                                  <option >1st</option>
+                                  <option >2nd</option>
+                                  <option >3rd</option>
+                                  <option >4th</option>
+                                  <option >5th</option>
+                                  <option >6th</option>
+                                  <option >7th</option>
+                                  <option >8th</option>
+                              </select>
+                                <span style="color: red;"> {{inputError.semester}} </span>
+        
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                          
+                        </div>
+                        
+                        </div>
+  
+  
+                        <div class="container">
+                                <div class="row">
+                                    <div class="col-md-3"></div>
+                                    <div class="col-md-3">
+          
+                                        <button (click)="save()" type="submit" class="btn btn-success form-control" value="submit">Save
+                                          
+          
+                                        </button>
+                                      </div>
+                                      <div class="col-md-3">
+                                        <button type="reset" (click)="reset()" class="btn btn-primary form-control" value="reset">Reset
+          
+                                           
+                                        </button>
+                                      </div>
+                                </div>
+                             </div>
+                            <!-- <div class="col-lg-12">
+                                <!-- <a href="/ORS/CollegeList"> List -->
+                                    <!-- <span class="fas fa-paper-plane"></span>
+                                </a>
+                            </div> -->
+                        <!-- </div> -->
+                    </div>
+            <!-- </div> -->
+        </div>
+        <!--
+        <form method="POST">
+            <input type="hidden" name="id" value="{{id}}">
+            <br>
+            Name <input name="collegeName" value="{{collegeName}}">
+            <span style="color: red;"> {{inputError.collegeName}} </span>
+            <br>
+            Address <input name="collegeAddress" value="{{collegeAddress}}">
+            <span style="color: red;"> {{inputError.collegeAddress}} </span>
+            <br>
+            State <input name="collegeState" value="{{collegeState}}">
+            <span style="color: red;"> {{inputError.collegeState}} </span>
+            <br>
+            City <input name="collegeCity" value="{{collegeCity}}">
+            <span style="color: red;"> {{inputError.collegeCity}} </span>
+            <br>
+            Phone_Number <input name="collegePhoneNumber" value="{{collegePhoneNumber}}">
+            <span style="color: red;"> {{inputError.collegePhoneNumber}} </span>
+            <br>
+        
+            <input type="submit" value="Save">
+            <a href="/ORS/CollegeList"> List </a>
+        </form>
+        -->
+        </div>
+        

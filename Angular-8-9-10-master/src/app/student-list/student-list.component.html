@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Angular</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</head>
+
+<body style="background-color: whitesmoke;background-image:url(https://all4desktop.com/data_images/original/4235124-background-powerpoint.jpg); background-repeat:no-repeat;width: 100%; background-size: cover">
+
+<!-- <body style="background-color: whitesmoke;background-image:url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSY4yXZY8DTUyjpWurgJlcjXBtix2wGQ9VBczqPsOO7mCuepdn_-aGQFW6amZx3n6kszDSfmd66poJ6km6_cmGq3q1yLUvY9H4&usqp=CAU&ec=45732303); background-repeat:no-repeat;width: 100%; background-size: cover">	 -->
+
+  <br>
+  <div class="container-fluid">
+      <p style="color:red" >{{message}} </p>
+
+
+
+        <div class="row">
+            <div class="col-lg-4"></div>
+            <div class="col-lg-3"><H1 style="margin-top: -15px;">Student List</H1></div>
+            <!-- <div class="col-lg-1"></div> -->
+            <div class="col-lg-2">
+                <input [(ngModel)]="form.email"  name="name" type="text" placeholder="Enter your email">
+            </div>
+            <!-- <div class="col-lg-2">
+                <input [(ngModel)]="form.description"  name="description" type="text" placeholder="enter role description">
+            </div>  -->
+            <div class="col-lg-1">
+                <button (click)="search()">Search
+                    <i class="fas fa-search"></i>
+                </button>
+            </div>
+
+        </div>
+
+
+<div class="container-fluid">
+    <table width="100%">
+    <div class="row">
+        <div class="col-md-12">
+                <table class="table table-sm table-bordered table-hover table-responsive-sm">
+                <thead class="thead-dark">
+
+                    <th>ID</th>
+                    <th>firstName</th>
+                    <th>lastName</th>
+                    <th>dob</th>
+                    <th>mobileNumber</th>
+                    <th>email</th>
+                    <!-- <th>college_ID</th> -->
+                    <!-- <th>collegeName</th> -->
+                    <th>Edit</th>
+                    <th>Delete</th>
+                </thead>
+                <tbody>
+
+
+
+                    <tr  *ngFor = "let e of list" >
+                        <td>{{e.id}}</td>
+                        <td>{{e.firstName}}</td>
+                        <td>{{e.lastName}}</td>
+                        <td>{{e.dob}}</td>
+                        <td>{{e.mobileNumber}}</td>
+                        <td>{{e.email}}</td>
+                        <!-- <td>{{e.college_ID}}</td> -->
+                        <!-- <td>{{e.collegeName}}</td> -->
+                        <td><button (click)="edit(e.id)">Edit</button></td>
+                        <td><button (click)="delete(e.id)">Delete</button></td>
+                      </tr>
+                </tbody>
+            </table>
+
+</div>
+</div>
+
+
+
+
+
+
+
