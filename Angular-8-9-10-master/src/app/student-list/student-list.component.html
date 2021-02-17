@@ -32,10 +32,10 @@
             </div>  -->
             <div class="col-lg-1">
                 <button (click)="search()">Search
-                    <i class="fas fa-search"></i>
+                   
                 </button>
             </div>
-
+            
         </div>
 
 
@@ -53,7 +53,7 @@
                     <th>mobileNumber</th>
                     <th>email</th>
                     <!-- <th>college_ID</th> -->
-                    <!-- <th>collegeName</th> -->
+                    <th>collegeName</th>
                     <th>Edit</th>
                     <th>Delete</th>
                 </thead>
@@ -68,13 +68,45 @@
                         <td>{{e.dob}}</td>
                         <td>{{e.mobileNumber}}</td>
                         <td>{{e.email}}</td>
-                        <!-- <td>{{e.college_ID}}</td> -->
+                        <td>{{e.college_ID}}</td>
                         <!-- <td>{{e.collegeName}}</td> -->
                         <td><button (click)="edit(e.id)">Edit</button></td>
                         <td><button (click)="delete(e.id)">Delete</button></td>
                       </tr>
                 </tbody>
             </table>
+            <div class="container">
+                <div class="row">
+                    
+                    
+                        <div class="col-lg-1" *ngIf="form.listLength<=form.pageNo ;else nextElse">
+                            <button (click)="next()" disabled>Next
+                                
+                            </button>
+                        </div>
+                        <ng-template #nextElse>
+                            <div class="col-lg-1">
+                                <button  (click)="next()">Next 
+                                </button>
+                            </div>
+                        </ng-template>
+            
+            
+                    <div class="col-lg-10"></div>
+                        <div class="col-lg-1" *ngIf="form.pageNo<=1 ;else pre">
+                            <button disabled (click)="previous()">previous
+                               
+                            </button>
+                        </div>
+                        <ng-template #pre>
+                            <div class="col-lg-1">
+                                <button  (click)="previous()">previous
+                                </button>
+                            </div>
+                        </ng-template>
+            
+                    </div>
+                </div>
 
 </div>
 </div>

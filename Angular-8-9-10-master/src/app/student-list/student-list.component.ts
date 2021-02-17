@@ -21,7 +21,9 @@ export class StudentListComponent implements OnInit {
   //Search form
   form = {
     "email": "",
-    "collegeName": "",
+    "firstname":"",
+    "pageNo":1,
+    "listLength":0
   };
 
   /**
@@ -69,17 +71,26 @@ export class StudentListComponent implements OnInit {
   /**
    * Searches and get list
    */
-  search() {
-    var _self = this;
-   
-    this.service.search(this.form, function (res, error) {
-      if (error) {
-        alert("Error " + res.message);
-        return;
-      }
-      _self.list = res.data.data;
-     
-    });
-  }
+  next(){
+    this.form["pageNo"]++;
+    this.search()
+   }
+   previous(){
+     this.form["pageNo"]--;
+     this.search()
+    }
 
-}
+  search() {
+      var _self = this;
+      this.service.search(this.form, function (res, error) {
+        if (error) {
+          alert("Error " + res.message);
+          return;
+        }
+        _self.list = res.result.data;
+        _self.form["listLength"]=_self.list.length
+    
+      });
+    }
+  
+  }

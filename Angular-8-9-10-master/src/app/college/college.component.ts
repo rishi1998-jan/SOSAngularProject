@@ -16,7 +16,7 @@ import { CollegeService } from '../service/college.service';
  * @author Sunil Sahu
  * @Copyright (c) SunilOS Infotech Pvt Ltd*
 */
-@Component({ 
+@Component({
   selector: 'app-college',
   templateUrl: './college.component.html',
   styleUrls: ['./college.component.css']
@@ -30,7 +30,8 @@ export class CollegeComponent implements OnInit {
     "collegeAddress": "",
     "collegeState": "",
     "collegeCity": "",
-    "collegePhoneNumber": ""
+    "collegePhoneNumber": "",
+    
   };
 
   //Input errors
@@ -65,7 +66,7 @@ export class CollegeComponent implements OnInit {
     console.log("Display record if primary key is received");
     var _self = this;
     this.form.id = parseInt(this.aroute.snapshot.paramMap.get("id"));
-    if ( !isNaN(this.form.id) && this.form.id > 0) {
+    if (!isNaN(this.form.id) && this.form.id > 0) {
       this.service.get(this.form.id, function (res, error) {
         if (error) {
           alert("Error:" + error.message);
@@ -81,20 +82,20 @@ export class CollegeComponent implements OnInit {
    */
   save() {
     console.log("Save a record");
-    if(isNaN(this.form.id)){
-      this.form.id= 0;
+    if (isNaN(this.form.id)) {
+      this.form.id = 0;
     }
     var _self = this;
     this.service.save(this.form, function (res, error) {
       if (res.data.error) {
         _self.success = false;
         _self.message = res.data.message;
-        _self.inputError=res.form.inputError;
+        _self.inputError = res.form.inputError;
         return;
       }
       _self.success = res.data.message;
-      if(_self.success){
-        _self.message = "Record is successfully saved..";
+      if (_self.success) {
+        _self.message = "Data is Successfully saved";
         _self.inputError = {
           "collegeName": "",
           "collegeAddress": "",
@@ -102,9 +103,9 @@ export class CollegeComponent implements OnInit {
           "collegeCity": "",
           "collegePhoneNumber": ""
         };
-      }else{
+      } else {
         _self.message = "Data Error";
-       // _self.inputError = res.inputerror
+        // _self.inputError = res.inputerror
       }
     });
   }
@@ -117,23 +118,22 @@ export class CollegeComponent implements OnInit {
     this.router.navigateByUrl('/collegelist');
   }
   reset() {
-    
+
     this.form = {
       "id": 0,
       "collegeName": "",
       "collegeAddress": "",
       "collegeState": "",
       "collegeCity": "",
-      "collegePhoneNumber": ""
-
+      "collegePhoneNumber": "",
     };
- this.inputError = {
-          "collegeName": "",
-          "collegeAddress": "",
-          "collegeState": "",
-          "collegeCity": "",
-          "collegePhoneNumber": ""
-        };
+    this.inputError = {
+      "collegeName": "",
+      "collegeAddress": "",
+      "collegeState": "",
+      "collegeCity": "",
+      "collegePhoneNumber": ""
+    };
   }
 
 

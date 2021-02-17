@@ -10,14 +10,14 @@
           <div class="modal-content" style="background-color: rgba(241, 229, 229, 0.972); " >
               <div class="modal-header text-center">
                   <h4 class="modal-title "style="font-family: bold; font-size: xx-large;margin-left: 110px;">Marksheet Information</h4>
-                  <div *ngIf="success == true; then SUCC else FAIL"></div>
-                  <ng-template #SUCC ><p style="color:green" >{{message}}</p></ng-template>
-                  <ng-template #FAIL><p style="color:red" >{{message}}</p></ng-template>
-  
               </div>
       
                   <div class="modal-body">
+                        <div *ngIf="success == true; then SUCC else FAIL"></div>
+                        <ng-template #SUCC ><p style="color:green;text-align: center" >{{message}}</p></ng-template>
+                        <ng-template #FAIL><p style="color:rgb(45, 187, 16) ;text-align: center;font-size: x-large;" >{{message}}</p></ng-template>
                       <div class="form-group row">
+                            
                           <div class="col-lg-1"></div>
                           <label class="col-lg-3 form-control-label">RollNo<span style="color: red;"> * </span> </label>
                           <div class="col-lg-8">
@@ -41,7 +41,10 @@
                             <div class="col-lg-1"></div>
                           <label class="col-lg-3 form-control-label">Physics <span style="color: red;"> * </span></label>
                           <div class="col-lg-8">
-                              <input  [(ngModel)]="form.physics"  type="text" name="physics" placeholder="Enter your physics marks"style=" width: 250px;">
+                              <input  [(ngModel)]="form.physics"  type="number"  name="physics"
+                                placeholder="Enter your physics marks"style=" 
+                               width: 250px;">
+                              
                               <div class="col-md-4"></div>
                               <span style="color: red;"> {{inputError.physics}} </span>
       
@@ -52,7 +55,7 @@
                         <div class="col-lg-1"></div>
                           <label class="col-lg-3 form-control-label">Chemistry<span style="color: red;"> * </span></label>
                           <div class="col-lg-8">
-                              <input [(ngModel)]="form.chemistry" type="text" name="chemistry" placeholder="Enter your chemistry marks"style=" width: 250px;">
+                              <input [(ngModel)]="form.chemistry" type="number" name="chemistry" placeholder="Enter your chemistry marks"style=" width: 250px;">
                               <div class="col-md-4"></div>
                               <span style="color: red;"> {{inputError.chemistry}} </span>
       
@@ -63,7 +66,7 @@
                         <div class="col-lg-1"></div>
                           <label class="col-lg-3 form-control-label">Maths <span style="color: red;"> * </span> </label>
                           <div class="col-lg-8">
-                              <input [(ngModel)]="form.maths" type="text" name="maths" placeholder="Enter your maths number"style=" width: 250px;">
+                              <input [(ngModel)]="form.maths" type="number" name="maths" placeholder="Enter your maths number"style=" width: 250px;">
                               <div class="col-md-4"></div>
                               <span style="color: red;"> {{inputError.maths}} </span>
       

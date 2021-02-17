@@ -74,15 +74,18 @@ export class MarksheetComponent implements OnInit {
     }
     var _self = this;
     this.service.save(this.form, function (res, error) {
+      console.log("----------------",res)
       if (res.data.error) {
         _self.success = false;
         _self.message = res.data.message;
         _self.inputError=res.form.inputError;
+        console.log("----------------",res)
+        
         return;
       }
       _self.success = res.data.message;
       if(_self.success){
-        _self.message = "Record is successfully saved..";
+        _self.message = "Data is Successfully saved";
         _self.inputError = {
           "rollNumber": "",
           "name": "",
@@ -101,11 +104,11 @@ export class MarksheetComponent implements OnInit {
    * Go to search page
    */
   search() {
-    console.log("search a record");
+   
     this.router.navigateByUrl('/marksheetlist');
   }
   reset() {
-    console.log("reset a record");
+   
     this.form = {
       "id": 0,
       "rollNumber": "",
@@ -116,6 +119,7 @@ export class MarksheetComponent implements OnInit {
     };
 
   }
+ 
 
 
 }

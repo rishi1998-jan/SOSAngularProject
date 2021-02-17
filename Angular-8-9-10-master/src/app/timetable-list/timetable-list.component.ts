@@ -21,15 +21,22 @@ list = [];
 
 //Search form
 form = {
-  "id": 0,
-  "examTime": "",
-  "examDate": "",
-  "subject_ID": "",
   "subjectName": "",
-  "course_ID": "",
-  "courseName": "",
-  "semester": ""
+  "pageNo":1,
+  "listLength":0
+    
 };
+
+// form = {
+//   "id": 0,
+//   "examTime": "",
+//   "examDate": "",
+//   "subject_ID": "",
+//   "subjectName": "",
+//   "course_ID": "",
+//   "courseName": "",
+//   "semester": ""
+// };
 
 /**
  * Injects services
@@ -76,17 +83,25 @@ delete(id) {
 /**
  * Searches and get list
  */
-search() {
-  var _self = this;
-  console.log("000000000000000000------------->",this.form)
-  this.service.search(this.form, function (res, error) {
-    if (error) {
-      alert("Error " + res.message);
-      return;
-    }
-    _self.list = res.data.data;
-    console.log(_self.list)
-  });
- } 
+next(){
+  this.form["pageNo"]++;
+  this.search()
+ }
+ previous(){
+   this.form["pageNo"]--;
+   this.search()
+  }
+  search() {
+    var _self = this;
+    this.service.search(this.form, function (res, error) {
+      if (error) {
+        alert("Error " + res.message);
+        return;
+      }
+      _self.list = res.result.data;
+      _self.form["listLength"]=_self.list.length
+  
+    });
+  }
 
 }

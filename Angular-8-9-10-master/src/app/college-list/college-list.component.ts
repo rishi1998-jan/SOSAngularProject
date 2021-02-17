@@ -1,7 +1,3 @@
-
-
-
-
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { CollegeService } from '../service/college.service';
@@ -22,6 +18,8 @@ export class CollegeListComponent implements OnInit {
   form = {
     "collegeName": "",
     "collegeAddress": "",
+    "pageNo":1,
+    "listLength":0
   };
 
   /**
@@ -69,15 +67,26 @@ export class CollegeListComponent implements OnInit {
   /**
    * Searches and get list
    */
+
+   next(){
+     this.form["pageNo"]++;
+     this.search()
+    }
+    previous(){
+      this.form["pageNo"]--;
+      this.search()
+     }
+
   search() {
     var _self = this;
-    console.log("000000000000000000------------->",this.form)
     this.service.search(this.form, function (res, error) {
       if (error) {
         alert("Error " + res.message);
         return;
       }
-      _self.list = res.data.data;
+      _self.list = res.result.data;
+      _self.form["listLength"]=_self.list.length
+  
     });
   }
 

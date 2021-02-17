@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { TimetableComponent } from './timetable.component';
+import { TimeTableComponent } from './timetable.component';
 
 describe('TimetableComponent', () => {
-  let component: TimetableComponent;
-  let fixture: ComponentFixture<TimetableComponent>;
+  let component: TimeTableComponent;
+  let fixture: ComponentFixture<TimeTableComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ TimetableComponent ]
+      declarations: [ TimeTableComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(TimetableComponent);
+    fixture = TestBed.createComponent(TimeTableComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

@@ -16,7 +16,6 @@
 
 <body style="background-color: whitesmoke;background-image:url(https://all4desktop.com/data_images/original/4235124-background-powerpoint.jpg); background-repeat:no-repeat;width: 100%; background-size: cover">
 
-<!-- <body style="background-color: whitesmoke;background-image:url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSY4yXZY8DTUyjpWurgJlcjXBtix2wGQ9VBczqPsOO7mCuepdn_-aGQFW6amZx3n6kszDSfmd66poJ6km6_cmGq3q1yLUvY9H4&usqp=CAU&ec=45732303); background-repeat:no-repeat;width: 100%; background-size: cover">	 -->
 
   <br>
   <div class="container-fluid">
@@ -27,19 +26,18 @@
         <div class="row">
             <div class="col-lg-4"></div>
             <div class="col-lg-3"><H1 style="margin-top: -15px;">TimeTable List</H1></div>
-            <!-- <div class="col-lg-1"></div> -->
+            
             <div class="col-lg-2">
-                <input [(ngModel)]="form.subjectName"  name="name" type="text" placeholder="Enter subjectName">
+                <input [(ngModel)]="form.subjectName"  name="subjectName" type="subjectName" placeholder="Enter subjectName">
             </div>
 
-            <!-- <div class="col-lg-2">
-                <input [(ngModel)]="form.description"  name="description" type="text" placeholder="enter role description">
-            </div>  -->
+            
             <div class="col-lg-1">
                 <button (click)="search()">Search
-                    <i class="fas fa-search"></i>
+                   
                 </button>
             </div>
+            
 
         </div>
 
@@ -54,9 +52,9 @@
                     <th>ID</th>
                     <th>examTime</th>
                     <th>examDate</th>
-                    <!-- <th>subject_ID</th> -->
+                   
                     <th>subjectName</th>
-                    <!-- <th>course_ID</th> -->
+                   
                     <th>courseName</th>
                     <th>semester</th>
                     <th>Edit</th>
@@ -80,6 +78,38 @@
                     </tr>
                 </tbody>
             </table>
+            <div class="container">
+                <div class="row">
+                    
+                    
+                        <div class="col-lg-1" *ngIf="form.listLength<=form.pageNo ;else nextElse">
+                            <button (click)="next()" disabled>Next
+                                
+                            </button>
+                        </div>
+                        <ng-template #nextElse>
+                            <div class="col-lg-1">
+                                <button  (click)="next()">Next 
+                                </button>
+                            </div>
+                        </ng-template>
+            
+            
+                    <div class="col-lg-10"></div>
+                        <div class="col-lg-1" *ngIf="form.pageNo<=1 ;else pre">
+                            <button disabled (click)="previous()">previous
+                               
+                            </button>
+                        </div>
+                        <ng-template #pre>
+                            <div class="col-lg-1">
+                                <button  (click)="previous()">previous
+                                </button>
+                            </div>
+                        </ng-template>
+            
+                    </div>
+                </div>
 
 </div>
 </div>

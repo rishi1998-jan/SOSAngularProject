@@ -26,7 +26,7 @@
                 <div *ngIf="success == true; then SUCC else FAIL"></div>
                 <ng-template #SUCC ><p style="color:green" >{{form.message}}</p>
                 </ng-template>
-                <ng-template #FAIL><h5 style="color:red" >{{form.message}}</h5></ng-template>
+                <ng-template #FAIL><h5 style="color:green" >{{form.message}}</h5></ng-template>
 
             </div>
 

@@ -94,7 +94,7 @@ export class SubjectComponent implements OnInit {
       }
       _self.success = res.data.message;
       if(_self.success){
-        _self.message = "Record is successfully saved..";
+        _self.message = "Data is Successfully saved";
         _self.inputError = {
           "subjectName": "",
           "subjectDescription": "",
